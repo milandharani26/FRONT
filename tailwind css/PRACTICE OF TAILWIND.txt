@@ -1,0 +1,101 @@
+
+***** HTML ***** HTML ***** HTML ***** HTML ***** HTML ***** HTML ***** HTML ***** HTML *****
+
+<main class="p-2 py-11">
+  <div class="mt-6 w-full rounded-md bg-slate-300 p-2 text-center font-mono text-[30px] font-extrabold text-blue-950 shadow-xl">hello world</div>
+
+  <div class="mt-10 w-full rounded-md border-4 border-violet-600 bg-violet-300 p-2 text-center text-[25px] font-semibold">div</div>
+
+  <div class="flex justify-between p-5">
+    <div class="mt-8 h-20 w-20 rounded-full bg-blue-700"></div>
+    <div class="mt-8 h-20 w-20 rounded-full bg-blue-700"></div>
+    <div class="mt-8 h-20 w-20 rounded-full bg-blue-700"></div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-2">
+    <div class="mt-4 h-12 bg-violet-400"></div>
+    <div class="mt-4 h-12 bg-violet-400"></div>
+    <div class="mt-4 h-12 bg-violet-400"></div>
+  </div>
+
+  <div class="mt-3 hidden md:block">
+    <p>i will apper for device resolution > 768px</p>
+  </div>
+  <div class="mt-3 hidden max-md:block">
+    <p>i will apper for device resolution < 768px</p>
+  </div>
+
+  <button class="mx-5 my-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800">click me</button>
+
+  <ul class="my-2 space-y-2">
+    <li class="mx-4 rounded-lg bg-white p-2 text-center first:bg-yellow-200">item 1</li>
+    <li class="mx-4 rounded-lg bg-white p-2 text-center first:bg-yellow-200 odd:bg-blue-200 even:bg-green-200">item 2</li>
+    <li class="mx-4 rounded-lg bg-white p-2 text-center first:bg-yellow-200 odd:bg-blue-200 even:bg-green-200">item 3</li>
+    <li class="mx-4 rounded-lg bg-white p-2 text-center first:bg-yellow-200 odd:bg-blue-200 even:bg-green-200">item 4</li>
+    <li class="mx-4 rounded-lg bg-white p-2 text-center first:bg-yellow-200 odd:bg-blue-200 even:bg-green-200">item 5</li>
+  </ul>
+
+  <!-- Theme dark: -->
+
+  <div class="card">
+    <h3 class="text-base font-medium tracking-tight text-slate-900 dark:text-white">this is text element</h3>
+    <p class="mt-2 text-sm text-slate-500 dark:text-blue-100">this is even longer p tag element</p>
+
+    <button id="togglrDark" class="mt-10 rounded-md bg-blue-200 px-4 py-2 text-sm font-medium text-blue-800" onclick="document.body.classList.toggle('dark')">enable dark mode</button>
+  </div>
+
+  <button class="special-btn">Click me</button>
+
+  <p class="w-[50%] rounded-md bg-stone-200 p-[16px] text-[20px] text-chesnut">chesnut color</p>
+</main>
+
+<!-- // To showcase the demo of dark theme. Copy paste :) -->
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleDark = document.getElementById('toggleDark')
+    toggleDark.addEventListener('click', function() {
+      if(document.documentElement.classList.includes('dark')) {
+        document.documentElement.classList.remove('dark')
+      }
+      else {
+        document.documentElement.classList.add('dark')
+      }
+      alert("click!")
+    });
+  });
+</script>
+
+
+***** CSS ***** CSS ***** CSS ***** CSS ***** CSS ***** CSS ***** CSS ***** CSS *****
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .card{
+    @apply m-10 w-[75%] rounded-lg bg-white px-6 py-8 shadow-xl ring-2 ring-slate-900/5 dark:bg-black
+  }
+
+  .special-btn{
+    @apply m-5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 focus:ring focus:ring-purple-300 active:bg-blue-700 px-6 py-3 rounded-lg text-white font-semibold shadow-md duration-300 ease-in-out transform hover:scale-105
+  }
+}
+
+***** CONFIG ***** CONFIG ***** CONFIG ***** CONFIG ***** CONFIG ***** CONFIG ***** CONFIG ***** CONFIG *****
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode:"class",
+  theme: {
+    extend: {
+      colors:{
+        chesnut:'#973F29'
+      }
+    },
+  },
+  plugins: [],
+}
+
+
+
